@@ -10,5 +10,21 @@ let scores = ( 92, 94, 91 95, 98)
 ((92+94+91+95+98)/5)
 console.log(92, 94, 91, 95, 98, 94)
 
+// Task 3: Working with objects
+const employee = (
+name: "Mark",
+age: 29
+department: Law
+isActive: true)
+const employee = (
+    name: "Mark",
+    age: 29
+    department: Law
+    isActive: true, car: Yes)
+    console.log(employee, name, age, department, car)
+    
+
+
+
 
 
