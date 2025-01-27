@@ -30,6 +30,10 @@ const customers = (name: "bob", email: "bobmail.com", purchaseAmount: 150)
 cont customers = (name: "jeff", email: "jeffmail.com", purchaseAmount: 200)
 console.log( custiners, name, email, purchaseAmount)
 
+// Task 5: Object Methods
+const order = (orderId: 5, customerName: "kev", amount: 500)
+calculateTax = amount * 0.10
+console.log( order, orderId, customername, amount
 
 
 
