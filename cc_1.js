@@ -20,3 +20,7 @@ accountBalance + 1000
 accountBalance - 500
 accountBalance * 5
 accountBalance / 5
+
+// Task 4: String Data Type
+let customerName = Mark
+"Welcome back" + customerName + "check out the new year's deals"
