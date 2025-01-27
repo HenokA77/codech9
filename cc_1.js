@@ -13,3 +13,10 @@ var isAvailable = true
 console.log(productName, productPrice, isAVailable)
 tyoeof("Charger")
 typeof(5)
+
+// Task 3: Example Problem  
+let accountBalance = 1000
+accountBalance + 1000
+accountBalance - 500
+accountBalance * 5
+accountBalance / 5
