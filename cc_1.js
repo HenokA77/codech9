@@ -24,3 +24,9 @@ accountBalance / 5
 // Task 4: String Data Type
 let customerName = Mark
 "Welcome back" + customerName + "check out the new year's deals"
+
+// Task 5: Boolean Data Type 
+let isLoggedIn = true, if employeeNum > 200
+let isLoggedIn = false if employeeNum = 200
+let isLoggedIn = false if employeeNum < 200
+
