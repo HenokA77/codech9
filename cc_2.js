@@ -22,7 +22,15 @@ const employee = (
     department: Law
     isActive: true, car: Yes)
     console.log(employee, name, age, department, car)
-    
+
+// Task 4: Array of Objects
+const customers = ( name: "joe", email: "joemail.com", purchaseAmount: 50)
+const customers = (name: "jess", email: "jessmail.com", purchaseAmount: 100)
+const customers = (name: "bob", email: "bobmail.com", purchaseAmount: 150)
+cont customers = (name: "jeff", email: "jeffmail.com", purchaseAmount: 200)
+console.log( custiners, name, email, purchaseAmount)
+
+
 
 
 
