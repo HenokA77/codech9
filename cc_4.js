@@ -42,3 +42,9 @@ console.log('The calculated tax for $${amount} at a rate of ${taxRate}% is $${ta
 // Task 9
 const applyDiscount = function(price, discountPercentage) {return price - (price * (discountPercentage / 100));};
 console.log('The price after a $ {discountedPercentage}% discount is $$ {discountedPrice.toFixed(2)}');
+
+// Task 10
+const calculatePoints= (purchaseAmount) => { return Math.floor(purchaseAmount /10);};
+let purchaseAmount = 150
+let pointsEarned = calculatePoints(purchaseAmount);
+console.log('You earned ${pointsEarned} points for a purchase of $${purchaseAmount}.');
