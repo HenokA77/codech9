@@ -13,3 +13,8 @@ let employee = {name: "John Doe", role: "software Engineer", performanceScore: 8
 employee.performanceScore = 90;
 employee.promotionEligible = true;
 console.log(employee);
+
+// Task 4
+let feedback = [{customerName: "Alice", feedbackText: "Great product, very satisfied!", rating: 5},{customerName: "Bob", feedbackText: "Decent quality, but could be improved.", rating: 3}, {customerName: "Charlie", feedbackText: "Excellent service, will buy again.", rating: 4}];
+feedback.push({customerName: "David", feedbackText: "Not satisfied with the product, it broke quickly.", rating: 2});
+console.log(feedback);
