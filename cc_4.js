@@ -18,3 +18,7 @@ console.log("Stock has reached zero.");
 //Task 4
 let responses = 0;
 do { console.log('Response #{responses + 1} collected.'); responses++} while (responses < 3); console.log("Collection of responses is complete.");
+
+//Task 5
+let employee = {name: "Alice", position: "Manager", salary: 75000};
+for (let property in employee) {console.log('${property}: $ {employee[property]}');}
