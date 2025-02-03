@@ -38,3 +38,7 @@ let amount = 100;
 let taxRate = 8.5;
 let tax = calculateTax(amount, taxRate); 
 console.log('The calculated tax for $${amount} at a rate of ${taxRate}% is $${tax.toFixed(2))}');
+
+// Task 9
+const applyDiscount = function(price, discountPercentage) {return price - (price * (discountPercentage / 100));};
+console.log('The price after a $ {discountedPercentage}% discount is $$ {discountedPrice.toFixed(2)}');
