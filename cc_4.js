@@ -31,3 +31,10 @@ for (let product of products) {console.log(product);}
 // Task 7
 let orders = [101. 102. 103;]
 ordders.forEach(orderId => {console.log('Order ID: ${orderId}');});
+
+// Task 8
+function calculateTax(amount, taxRate) {return amount * (taxRate / 100);}
+let amount = 100;
+let taxRate = 8.5;
+let tax = calculateTax(amount, taxRate); 
+console.log('The calculated tax for $${amount} at a rate of ${taxRate}% is $${tax.toFixed(2))}');
