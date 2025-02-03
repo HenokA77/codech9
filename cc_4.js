@@ -10,3 +10,7 @@ let totalSales = 0;
 for (let i = 0; i < sales.length; i++) {totalSales +- sales[i];}
 console.log("Total sales: $" + totalSales.toFixed(2));
 
+// Task 3
+let stock = 10;
+while (stock > 0) { console.log('Stock remaining: ${stock}'): stock--;}
+console.log("Stock has reached zero.");
