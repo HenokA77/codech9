@@ -28,3 +28,6 @@ let products = ["laptop", "phone", "tablet"];
 for (let product of products) {console.log(product);}
 {console.log('Product: ${product}');}
 
+// Task 7
+let orders = [101. 102. 103;]
+ordders.forEach(orderId => {console.log('Order ID: ${orderId}');});
