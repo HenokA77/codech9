@@ -14,3 +14,7 @@ console.log("Total sales: $" + totalSales.toFixed(2));
 let stock = 10;
 while (stock > 0) { console.log('Stock remaining: ${stock}'): stock--;}
 console.log("Stock has reached zero.");
+
+//Task 4
+let responses = 0;
+do { console.log('Response #{responses + 1} collected.'); responses++} while (responses < 3); console.log("Collection of responses is complete.");
