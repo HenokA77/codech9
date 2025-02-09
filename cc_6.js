@@ -42,3 +42,32 @@ const calculateBonus = (salary, performanceRating) => {
 // Test the function with provided data
 calculateBonus(5000, "Excellent"); // Expected output: "Bonus: $1000"
 calculateBonus(7000, "Good");      // Expected output: "Bonus: $700"
+
+// Task 4
+// Function to calculate subscription cost
+function calculateSubscriptionCost(plan, months, discount = 0) {
+    let monthlyCost = 0;
+
+    // Determine the monthly cost based on the plan
+    if (plan === "Basic") {
+        monthlyCost = 10;
+    } else if (plan === "Premium") {
+        monthlyCost = 20;
+    } else if (plan === "Enterprise") {
+        monthlyCost = 50;
+    }
+
+    // Calculate total cost before discount
+    const totalCost = monthlyCost * months;
+
+    // Apply discount
+    const discountedCost = totalCost - (totalCost * (discount / 100));
+
+    // Log the final total cost
+    console.log(`Total Cost: $${discountedCost}`);
+    return discountedCost;
+}
+
+// Test the function with provided data
+calculateSubscriptionCost("Basic", 6, 10);   // Expected output: "Total Cost: $50"
+calculateSubscriptionCost("Premium", 12, 0);  // Expected output: "Total Cost: $240"
