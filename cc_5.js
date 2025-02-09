@@ -78,3 +78,23 @@ const totalRevenue = sales.reduce((accumulator, currentSale) => accumulator + cu
 // Log the total revenue to the console
 console.log(totalRevenue);
 
+// Task 7
+// Declare the customers array
+const customers = ["Alice", "Bob", "Charlie", "David"];
+
+// Use .find() to locate the customer "Charlie"
+const foundCustomer = customers.find(customer => customer === "Charlie");
+
+// Log the result to the console
+console.log(foundCustomer);
+
+// Task 8
+// Function to calculate tax
+function calculateTax(amount, taxRate) {
+    const tax = amount * (taxRate / 100);
+    console.log(`The calculated tax is: $${tax}`);
+    return tax;
+}
+
+// Example usage
+calculateTax(100, 8); // For an amount of 100 and a tax rate of 8%
