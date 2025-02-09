@@ -98,3 +98,14 @@ function calculateTax(amount, taxRate) {
 
 // Example usage
 calculateTax(100, 8); // For an amount of 100 and a tax rate of 8%
+
+// Task 9
+// Function to calculate tax
+function calculateTax(amount, taxRate) {
+    const tax = amount * (taxRate / 100);
+    console.log(`The calculated tax is: $${tax}`);
+    return tax;
+}
+
+// Example usage
+calculateTax(100, 8); // For an amount of 100 and a tax rate of 8%
