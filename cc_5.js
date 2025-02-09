@@ -100,12 +100,12 @@ function calculateTax(amount, taxRate) {
 calculateTax(100, 8); // For an amount of 100 and a tax rate of 8%
 
 // Task 9
-// Function to calculate tax
-function calculateTax(amount, taxRate) {
-    const tax = amount * (taxRate / 100);
-    console.log(`The calculated tax is: $${tax}`);
-    return tax;
-}
+// Function expression to apply discount
+const applyDiscount = function(price, discount) {
+    const discountedPrice = price - (price * (discount / 100));
+    console.log(`The discounted price is: $${discountedPrice}`);
+    return discountedPrice;
+};
 
 // Example usage
-calculateTax(100, 8); // For an amount of 100 and a tax rate of 8%
+applyDiscount(200, 10); // For a price of 200 and a discount of 10%
