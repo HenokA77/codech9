@@ -109,3 +109,14 @@ const applyDiscount = function(price, discount) {
 
 // Example usage
 applyDiscount(200, 10); // For a price of 200 and a discount of 10%
+
+// Task 10
+// Arrow function to calculate points
+const calculatePoints = purchaseAmount => {
+    const points = Math.floor(purchaseAmount / 10); // 1 point per $10 spent
+    console.log(`You have earned ${points} points.`);
+    return points;
+};
+
+// Example usage
+calculatePoints(85); // For a purchase amount of 85
