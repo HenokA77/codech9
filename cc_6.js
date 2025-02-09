@@ -98,3 +98,20 @@ const updatedOrders = applyBulkDiscount(orders, amount => amount > 500 ? amount 
 
 console.log(updatedOrders); // Expected output: [200, 540, 1080, 450, 720]
 
+// Task 7
+// Function to create an expense tracker
+function createExpenseTracker() {
+    let totalExpenses = 0;
+
+    // Inner function to add expenses and keep a running total
+    return function(expense) {
+        totalExpenses += expense;
+        console.log(`Total Expenses: $${totalExpenses}`);
+        return totalExpenses;
+    };
+}
+
+// Test the function with provided data
+let tracker = createExpenseTracker();
+console.log(tracker(200)); // Expected output: "Total Expenses: $200"
+console.log(tracker(150)); // Expected output: "Total Expenses: $350"
