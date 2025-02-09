@@ -83,3 +83,18 @@ function convertCurrency(amount, exchangeRate) {
 // Test the function with provided data
 convertCurrency(100, 1.1);  // Expected output: "Converted Amount: $110.00"
 convertCurrency(250, 0.85); // Expected output: "Converted Amount: $212.50"
+
+// Task 6
+// Declare an array of orders
+let orders = [200, 600, 1200, 450, 800];
+
+// Higher-order function to apply a bulk discount
+function applyBulkDiscount(orders, discountFunction) {
+    return orders.map(discountFunction);
+}
+
+// Apply the discount: 10% for orders above $500
+const updatedOrders = applyBulkDiscount(orders, amount => amount > 500 ? amount * 0.9 : amount);
+
+console.log(updatedOrders); // Expected output: [200, 540, 1080, 450, 720]
+
