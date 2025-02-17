@@ -90,3 +90,24 @@ console.log(largeTransactions); // Output: [1200, 3000, 1500]
 let transactions = [200, 1500, 3200, 800, 2500];
 filterLargeTransactions(transactions, amount => amount > 1000);
 // Expected output: [1500, 3200, 2500]
+
+// Task 7
+const createCartTracker = () => {
+    let total = 0; // Running total
+
+    return (price) => {
+        total += price; // Add item price to total
+        console.log(`Added item: $${price}, Total: $${total}`);
+        return total; // Return updated total
+    };
+};
+
+// Example usage:
+const myCart = createCartTracker();
+
+myCart(25); // Added item: $25, Total: $25
+myCart(50); // Added item: $50, Total: $75
+myCart(30); // Added item: $30, Total: $105
+let cart = createCartTracker();
+console.log(cart(20)); // Expected output: "Total Cart Value: $20"
+console.log(cart(35)); // Expected output: "Total Cart Value: $55"
