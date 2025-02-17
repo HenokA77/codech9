@@ -79,3 +79,22 @@ let interest = calculateLoanInterest(10000, 0.05, 5);
 console.log(`Total Interest: $${interest.toFixed(2)}`);
 calculateLoanInterest(1000, 0.05, 3); // Expected output: "Total Interest: $150.00"
 calculateLoanInterest(5000, 0.07, 5); // Expected output: "Total Interest: $1750.00"
+
+// Task 6 
+// Array of transactions with amounts
+const transactions = [150, 2500, 450, 1200, 8000, 320];
+
+// Higher-order function to filter transactions above $1000
+const filterHighValueTransactions = (transactions, filterFunction) => {
+    return transactions.filter(filterFunction);
+};
+
+// Filter function to check if a transaction is above $1000
+const isAbove1000 = amount => amount > 1000;
+
+// Example usage
+const highValueTransactions = filterHighValueTransactions(transactions, isAbove1000);
+console.log(highValueTransactions); // Output: [2500, 1200, 8000]
+let transactions = [500, 1200, 3000, 800, 2200];
+filterHighValueTransactions(transactions, amount => amount > 1000);
+// Expected output: [1200, 3000, 2200]
