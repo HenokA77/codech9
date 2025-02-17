@@ -68,3 +68,14 @@ console.log(`Shipping Cost: $${calculateShippingCost(10, "USA", true).toFixed(2)
 console.log(`Shipping Cost: $${calculateShippingCost(10, "Canada").toFixed(2)}`);  // Regular shipping
 calculateShippingCost(10, "USA", true); // Expected output: "Shipping Cost: $20.00"
 calculateShippingCost(5, "Canada", false); // Expected output: "Shipping Cost: $13.50"
+
+// Task 5
+const calculateLoanInterest = (principal, rate, years) => {
+    return principal * rate * years;
+};
+
+// Example usage
+let interest = calculateLoanInterest(10000, 0.05, 5);
+console.log(`Total Interest: $${interest.toFixed(2)}`);
+calculateLoanInterest(1000, 0.05, 3); // Expected output: "Total Interest: $150.00"
+calculateLoanInterest(5000, 0.07, 5); // Expected output: "Total Interest: $1750.00"
