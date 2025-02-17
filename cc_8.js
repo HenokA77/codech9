@@ -111,3 +111,22 @@ myCart(30); // Added item: $30, Total: $105
 let cart = createCartTracker();
 console.log(cart(20)); // Expected output: "Total Cart Value: $20"
 console.log(cart(35)); // Expected output: "Total Cart Value: $55"
+
+// Task 8
+const calculateSavings = (years, amount) => {
+    // Base case: Stop when years reach 10
+    if (years === 10) {
+        return amount;
+    }
+    
+    // Increase savings by 5% each year and recurse
+    return calculateSavings(years + 1, amount * 1.05);
+};
+
+// Example usage:
+let initialAmount = 1000; // Starting savings
+let finalSavings = calculateSavings(0, initialAmount); // Start from year 0
+console.log(`Projected savings after 10 years: $${finalSavings.toFixed(2)}`);
+calculateSavings(8, 1000); // Expected output: "Projected Savings: $1102.50"
+calculateSavings(5, 5000); // Expected output: "Projected Savings: $6381.41"
+
