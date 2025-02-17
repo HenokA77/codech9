@@ -35,3 +35,28 @@ console.log(`Service Fee: $${calculateServiceFee(200, "Standard").toFixed(2)}`);
 console.log(`Service Fee: $${calculateServiceFee(200, "Basic").toFixed(2)}`); // $10.00
 calculateServiceFee(200, "Premium"); // Expected output: "Service Fee: $30.00"
 calculateServiceFee(500, "Standard"); // Expected output: "Service Fee: $50.00"
+
+// Task 4 
+const calculateRentalCost = (days, carType, insurance = false) => {
+    let dailyRate = carType === "Economy" ? 40 :
+                    carType === "Standard" ? 60 :
+                    carType === "Luxury" ? 100 : 0;
+
+    if (dailyRate === 0) {
+        throw new Error("Invalid car type. Please choose 'Economy', 'Standard', or 'Luxury'.");
+    }
+
+    let totalCost = days * dailyRate;
+    
+    if (insurance) {
+        totalCost += days * 20; // Adds $20 per day for insurance
+    }
+
+    return totalCost;
+};
+
+// Example usage:
+console.log(`Total Rental Cost: $${calculateRentalCost(5, "Luxury", true)}`); // Output: $600
+console.log(`Total Rental Cost: $${calculateRentalCost(3, "Economy")}`); // Output: $120
+calculateRentalCost(3, "Economy", true); // Expected output: "Total Rental Cost: $180"
+calculateRentalCost(5, "Luxury", false); // Expected output: "Total Rental Cost: $500"
