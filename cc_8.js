@@ -71,3 +71,22 @@ let totalPayment = calculateLoanPayment(10000, 0.05, 5);
 console.log(`Total Loan Payment: $${totalPayment.toFixed(2)}`);
 calculateLoanPayment(1000, 0.05, 2); // Expected output: "Total Payment: $1100.00"
 calculateLoanPayment(5000, 0.07, 3); // Expected output: "Total Payment: $6050.00"
+
+// Task 6
+// Declare an array of transactions with at least five values
+const transactions = [500, 1200, 800, 3000, 450, 1500];
+
+// Higher-order function to filter transactions above $1000
+const filterLargeTransactions = (transactions, filterFunction) => {
+    return transactions.filter(filterFunction);
+};
+
+// Filter function to check if a transaction is above $1000
+const isAbove1000 = amount => amount > 1000;
+
+// Example usage:
+const largeTransactions = filterLargeTransactions(transactions, isAbove1000);
+console.log(largeTransactions); // Output: [1200, 3000, 1500]
+let transactions = [200, 1500, 3200, 800, 2500];
+filterLargeTransactions(transactions, amount => amount > 1000);
+// Expected output: [1500, 3200, 2500]
