@@ -60,3 +60,14 @@ console.log(`Total Rental Cost: $${calculateRentalCost(5, "Luxury", true)}`); //
 console.log(`Total Rental Cost: $${calculateRentalCost(3, "Economy")}`); // Output: $120
 calculateRentalCost(3, "Economy", true); // Expected output: "Total Rental Cost: $180"
 calculateRentalCost(5, "Luxury", false); // Expected output: "Total Rental Cost: $500"
+
+// Task 5 
+const calculateLoanPayment = (principal, rate, time) => {
+    return principal + (principal * rate * time);
+};
+
+// Example usage:
+let totalPayment = calculateLoanPayment(10000, 0.05, 5);
+console.log(`Total Loan Payment: $${totalPayment.toFixed(2)}`);
+calculateLoanPayment(1000, 0.05, 2); // Expected output: "Total Payment: $1100.00"
+calculateLoanPayment(5000, 0.07, 3); // Expected output: "Total Payment: $6050.00"
