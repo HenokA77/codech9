@@ -98,3 +98,24 @@ console.log(highValueTransactions); // Output: [2500, 1200, 8000]
 let transactions = [500, 1200, 3000, 800, 2200];
 filterHighValueTransactions(transactions, amount => amount > 1000);
 // Expected output: [1200, 3000, 2200]
+
+// Task 7
+const createBudgetTracker = () => {
+    let balance = 0; // Initial balance
+
+    // This returned function will allow adding expenses and updating balance
+    return (expense) => {
+        balance -= expense; // Subtract the expense from the balance
+        console.log(`New Expense: $${expense}, Updated Balance: $${balance}`);
+        return balance; // Return the updated balance
+    };
+};
+
+// Example usage:
+const myBudgetTracker = createBudgetTracker();
+
+myBudgetTracker(50); // Adds an expense of $50
+myBudgetTracker(100); // Adds an expense of $100
+let budget = createBudgetTracker();
+budget(300); // Expected output: "Current Balance: -$300"
+budget(200); // Expected output: "Current Balance: -$500"
