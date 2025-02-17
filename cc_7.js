@@ -119,3 +119,22 @@ myBudgetTracker(100); // Adds an expense of $100
 let budget = createBudgetTracker();
 budget(300); // Expected output: "Current Balance: -$300"
 budget(200); // Expected output: "Current Balance: -$500"
+
+// Task 8
+const calculateGrowth = (years, revenue) => {
+    // Base case: Stop recursion after 10 years
+    if (years === 10) {
+        return revenue;
+    }
+    
+    // Recursion: Increase revenue by 5% for each year
+    revenue *= 1.05;
+    return calculateGrowth(years + 1, revenue); // Recur for the next year
+};
+
+// Example usage:
+let initialRevenue = 1000; // Starting revenue
+let finalRevenue = calculateGrowth(0, initialRevenue); // Start from year 0
+console.log(`Projected revenue after 10 years: $${finalRevenue.toFixed(2)}`);
+calculateGrowth(8, 1000); // Expected output: "Projected Revenue: $1102.50"
+calculateGrowth(5, 5000); // Expected output: "Projected Revenue: $6381.41"
