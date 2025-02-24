@@ -177,3 +177,98 @@ company.listEmployees();
 // Expected output:
 // "Employee: Alice Johnson, ID: 101, Department: Sales, Salary: $5000"
 // "Manager: John Smith, ID: 201, Department: IT, Salary: $8000, Team Size: 5"
+
+// Task 4 
+import java.util.ArrayList;
+import java.util.List;
+
+// Employee class
+class Employee {
+    protected String name;
+    protected double salary;
+
+    public Employee(String name, double salary) {
+        this.name = name;
+        this.salary = salary;
+    }
+
+    public String getDetails() {
+        return "Name: " + name + ", Salary: $" + String.format("%.2f", salary);
+    }
+
+    public double calculateAnnualSalary() {
+        return salary; // Base salary (without bonus)
+    }
+}
+
+// Manager class inheriting from Employee
+class Manager extends Employee {
+    private int teamSize;
+
+    public Manager(String name, double salary, int teamSize) {
+        super(name, salary);
+        this.teamSize = teamSize;
+    }
+
+    @Override
+    public String getDetails() {
+        return super.getDetails() + ", Team Size: " + teamSize;
+    }
+
+    public double calculateBonus() {
+        return salary * 0.10;
+    }
+
+    @Override
+    public double calculateAnnualSalary() {
+        return salary + calculateBonus(); // Includes bonus in annual salary
+    }
+}
+
+// Company class
+class Company {
+    private String name;
+    private List<Employee> employees;
+
+    public Company(String name) {
+        this.name = name;
+        this.employees = new ArrayList<>();
+    }
+
+    public void addEmployee(Employee employee) {
+        employees.add(employee);
+    }
+
+    public void listEmployees() {
+        System.out.println("Employees at " + name + ":");
+        for (Employee employee : employees) {
+            System.out.println(employee.getDetails());
+        }
+    }
+
+    public double calculateTotalPayroll() {
+        double totalPayroll = 0;
+        for (Employee employee : employees) {
+            totalPayroll += employee.calculateAnnualSalary();
+        }
+        return totalPayroll;
+    }
+}
+
+// Main class to test
+public class Main {
+    public static void main(String[] args) {
+        Company company = new Company("TechCorp");
+
+        Employee emp1 = new Employee("Alice Johnson", 60000);
+        Manager mgr1 = new Manager("Bob Smith", 90000, 10);
+
+        company.addEmployee(emp1);
+        company.addEmployee(mgr1);
+
+        company.listEmployees();
+        System.out.println("Total Payroll: $" + String.format("%.2f", company.calculateTotalPayroll())); // Output: Total Payroll including bonuses
+    }
+}
+console.log(company.calculateTotalPayroll());
+ // Expected output: 165600 (assuming emp1 and mgr1 salaries)
