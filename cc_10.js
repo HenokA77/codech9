@@ -214,3 +214,145 @@ const inventory = new Inventory();
 inventory.addProduct(prod1);
 inventory.listProducts();
 // Expected output: "Product: Laptop, ID: 101, Price: $1200, Stock: 5"
+
+
+// Task 4
+import java.util.ArrayList;
+import java.util.List;
+
+// Product class
+class Product {
+    private String name;
+    private int id;
+    private double price;
+    private int stock;
+
+    public Product(String name, int id, double price, int stock) {
+        this.name = name;
+        this.id = id;
+        this.price = price;
+        this.stock = stock;
+    }
+
+    public String getDetails() {
+        return "Product ID: " + id + ", Name: " + name + ", Price: $" + String.format("%.2f", price) + ", Stock: " + stock;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public boolean updateStock(int quantity) {
+        if (quantity > 0 && quantity <= stock) {
+            stock -= quantity;
+            return true;
+        } else {
+            return false; // Insufficient stock or invalid quantity
+        }
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getStock() {
+        return stock;
+    }
+}
+
+// Order class
+class Order {
+    private int orderId;
+    private Product product;
+    private int quantity;
+
+    public Order(int orderId, Product product, int quantity) {
+        this.orderId = orderId;
+        this.product = product;
+        this.quantity = quantity;
+    }
+
+    public String getOrderDetails() {
+        return "Order ID: " + orderId + ", Product: " + product.getName() + ", Quantity: " + quantity + 
+               ", Total Price: $" + String.format("%.2f", quantity * product.getPrice());
+    }
+}
+
+// Inventory class
+class Inventory {
+    private List<Product> products;
+    private List<Order> orders;
+
+    public Inventory() {
+        this.products = new ArrayList<>();
+        this.orders = new ArrayList<>();
+    }
+
+    public void addProduct(Product product) {
+        products.add(product);
+        System.out.println("Product added: " + product.getDetails());
+    }
+
+    public void listProducts() {
+        if (products.isEmpty()) {
+            System.out.println("No products in inventory.");
+        } else {
+            System.out.println("Inventory Products:");
+            for (Product product : products) {
+                System.out.println(product.getDetails());
+            }
+        }
+    }
+
+    public void placeOrder(int orderId, Product product, int quantity) {
+        if (product.updateStock(quantity)) {
+            Order order = new Order(orderId, product, quantity);
+            orders.add(order);
+            System.out.println("Order placed successfully: " + order.getOrderDetails());
+        } else {
+            System.out.println("Order failed: Insufficient stock for " + product.getName());
+        }
+    }
+
+    public void listOrders() {
+        if (orders.isEmpty()) {
+            System.out.println("No orders placed.");
+        } else {
+            System.out.println("Placed Orders:");
+            for (Order order : orders) {
+                System.out.println(order.getOrderDetails());
+            }
+        }
+    }
+}
+
+// Main class to test
+public class Main {
+    public static void main(String[] args) {
+        Inventory inventory = new Inventory();
+
+        Product laptop = new Product("Laptop", 101, 999.99, 10);
+        Product phone = new Product("Smartphone", 102, 699.99, 15);
+
+        inventory.addProduct(laptop);
+        inventory.addProduct(phone);
+
+        inventory.listProducts();
+
+        // Placing orders
+        inventory.placeOrder(1, laptop, 3); // Valid order
+        inventory.placeOrder(2, phone, 20); // Invalid order (exceeds stock)
+
+        inventory.listOrders(); // Listing placed orders
+        inventory.listProducts(); // Checking stock after orders
+    }
+}
+inventory.placeOrder(601, prod1, 2);
+inventory.listOrders();
+// Expected output: "Order ID: 601, Product: Laptop, Quantity: 2, Total Price: $2400"
+console.log(prod1.getDetails());
+// Expected output: "Product: Laptop, ID: 101, Price: $1200, Stock: 3"
