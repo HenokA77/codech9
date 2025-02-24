@@ -272,3 +272,118 @@ public class Main {
 }
 console.log(company.calculateTotalPayroll());
  // Expected output: 165600 (assuming emp1 and mgr1 salaries)
+
+ 
+// Task 5
+import java.util.ArrayList;
+import java.util.List;
+
+// Employee class
+class Employee {
+    protected String name;
+    protected double salary;
+
+    public Employee(String name, double salary) {
+        this.name = name;
+        this.salary = salary;
+    }
+
+    public String getDetails() {
+        return "Name: " + name + ", Salary: $" + String.format("%.2f", salary);
+    }
+
+    public double calculateAnnualSalary() {
+        return salary; // Base salary (without bonus)
+    }
+}
+
+// Manager class inheriting from Employee
+class Manager extends Employee {
+    private int teamSize;
+
+    public Manager(String name, double salary, int teamSize) {
+        super(name, salary);
+        this.teamSize = teamSize;
+    }
+
+    @Override
+    public String getDetails() {
+        return super.getDetails() + ", Team Size: " + teamSize;
+    }
+
+    public double calculateBonus() {
+        return salary * 0.10;
+    }
+
+    @Override
+    public double calculateAnnualSalary() {
+        return salary + calculateBonus(); // Includes bonus in annual salary
+    }
+}
+
+// Company class
+class Company {
+    private String name;
+    private List<Employee> employees;
+
+    public Company(String name) {
+        this.name = name;
+        this.employees = new ArrayList<>();
+    }
+
+    public void addEmployee(Employee employee) {
+        employees.add(employee);
+    }
+
+    public void listEmployees() {
+        System.out.println("Employees at " + name + ":");
+        for (Employee employee : employees) {
+            System.out.println(employee.getDetails());
+        }
+    }
+
+    public double calculateTotalPayroll() {
+        double totalPayroll = 0;
+        for (Employee employee : employees) {
+            totalPayroll += employee.calculateAnnualSalary();
+        }
+        return totalPayroll;
+    }
+
+    public void promoteToManager(Employee employee, int teamSize) {
+        // Find the employee in the list
+        int index = employees.indexOf(employee);
+        if (index != -1) {
+            // Replace Employee with a new Manager object, keeping their salary and name
+            Manager newManager = new Manager(employee.name, employee.salary, teamSize);
+            employees.set(index, newManager);
+            System.out.println(employee.name + " has been promoted to Manager with a team size of " + teamSize);
+        } else {
+            System.out.println("Employee not found!");
+        }
+    }
+}
+
+// Main class to test
+public class Main {
+    public static void main(String[] args) {
+        Company company = new Company("TechCorp");
+
+        Employee emp1 = new Employee("Alice Johnson", 60000);
+        Employee emp2 = new Employee("Mark Davis", 75000);
+
+        company.addEmployee(emp1);
+        company.addEmployee(emp2);
+
+        company.listEmployees();
+
+        // Promoting Alice to a Manager
+        company.promoteToManager(emp1, 5);
+
+        company.listEmployees();
+        System.out.println("Total Payroll: $" + String.format("%.2f", company.calculateTotalPayroll()));
+    }
+}
+company.promoteToManager(emp1, 3);
+company.listEmployees();
+// Expected output: "Manager: Alice Johnson, ID: 101, Department: Sales, Salary: $5000, Team Size: 3"
